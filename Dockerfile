@@ -1,9 +1,9 @@
 FROM node:9.4.0
 
-COPY . /
-
+COPY . /projects
+WORKDIR /projects
 # RUN npm i -g pm2 && npm i
-RUN npm i
+RUN cd /projects  && yarn install
 
 EXPOSE 3000
 

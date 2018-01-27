@@ -13,7 +13,7 @@ var etherUnits = require(__lib + "etherUnits.js")
 var getLatestBlocks = require('./index').getLatestBlocks;
 var filterBlocks = require('./filters').filterBlocks;
 var filterTrace = require('./filters').filterTrace;
-
+console.log(process.env.NODE_URL, '??')
 
 if (typeof web3 !== "undefined") {
   web3 = new Web3(web3.currentProvider);
@@ -24,8 +24,7 @@ if (typeof web3 !== "undefined") {
 if (web3.isConnected())
   console.log("Web3 connection established");
 else
-  throw "No connection";
-
+  throw 'No connection';
 
 var newBlocks = web3.eth.filter("latest");
 var newTxs = web3.eth.filter("pending");
