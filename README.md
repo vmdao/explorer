@@ -62,3 +62,8 @@ Leave this running in the background to continuously fetch new blocks.
 Tools for updating network stats are under development, but can be found in:
 
 `./tools/stats.js` 
+
+# Run With Docker
+ENV
+- NODE_URL: protocol + domain + port( exp: https://explorer.coin.com/8545)
+- MONGO_URI: domain

@@ -1,9 +1,13 @@
-var mongoose = require( 'mongoose' );
-var Schema   = mongoose.Schema;
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
-var Block = new Schema(
-{
-    "number": {type: Number, index: {unique: true}},
+var Block = new Schema({
+    "number": {
+        type: Number,
+        index: {
+            unique: true
+        }
+    },
     "hash": String,
     "parentHash": String,
     "nonce": String,
@@ -23,9 +27,13 @@ var Block = new Schema(
     "uncles": [String]
 });
 
-var Contract = new Schema(
-{
-    "address": {type: String, index: {unique: true}},
+var Contract = new Schema({
+    "address": {
+        type: String,
+        index: {
+            unique: true
+        }
+    },
     "creationTransaction": String,
     "contractName": String,
     "compilerVersion": String,
@@ -33,11 +41,17 @@ var Contract = new Schema(
     "sourceCode": String,
     "abi": String,
     "byteCode": String
-}, {collection: "Contract"});
+}, {
+    collection: "Contract"
+});
 
-var Transaction = new Schema(
-{
-    "hash": {type: String, index: {unique: true}},
+var Transaction = new Schema({
+    "hash": {
+        type: String,
+        index: {
+            unique: true
+        }
+    },
     "nonce": Number,
     "blockHash": String,
     "blockNumber": Number,
@@ -58,5 +72,5 @@ module.exports.Block = mongoose.model('Block');
 module.exports.Contract = mongoose.model('Contract');
 module.exports.Transaction = mongoose.model('Transaction');
 
-mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost/blockDB');
+mongoose.connect('mongodb://' + (process.env.MONGO_URI || 'localhost') + '/blockDB');
 mongoose.set('debug', true);
