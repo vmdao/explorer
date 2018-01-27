@@ -3,7 +3,7 @@ var request = require("request");
 
 //tests for the express server
 
-describe("Classic Explorer Server Tests", function() {
+describe("VET Explorer Server Tests", function() {
 
   //ping the index page
   describe("Test index page", function() {

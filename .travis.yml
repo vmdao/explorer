@@ -1,6 +1,7 @@
 language: node_js
 sudo: required
 dist: trusty
+group: deprecated-2017Q4
 node_js: '9'
 env: CXX=g++-4.8
 services:
@@ -14,4 +15,5 @@ before_install:
   - docker build -t ethereumclassic/explorer .
   - docker run -d --network="container:$varA" ethereumclassic/explorer
 script:
+- 
 - npm run test
